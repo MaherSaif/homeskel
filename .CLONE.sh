@@ -2,7 +2,7 @@
 
 
 if [ -z "$1" ]; then
-	echo "No argument given - using the default" && exit 1
+	echo "No argument given - using the default"
 	URL="git@github.com:dpc/homeskel.git"
 else
 	URL="$1"
@@ -19,9 +19,12 @@ cd
 [ -f ".bash_profile" ] && mv ".bash_profile" ".bash_profile.local"
 [ -f ".CLONE.sh" ] && mv ".CLONE.sh" "CLONE.sh"
 
-git init
-git remote add origin "$URL"
-git fetch
+if [ ! -d ".git" ]; then
+	git init
+	git remote add origin "$URL"
+	git fetch
+fi
+
 git branch master origin/master
 git checkout master
 git submodule init
