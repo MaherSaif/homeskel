@@ -3,7 +3,7 @@
 
 if [ -z "$1" ]; then
 	echo "No argument given - using the default"
-	URL="git@github.com:dpc/homeskel.git"
+	URL="git@github.com:`whoami`/homeskel.git"
 else
 	URL="$1"
 fi
