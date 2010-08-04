@@ -1,0 +1,17 @@
+[user]
+	name = Dawid Ciężarkiewicz
+	email = dpc@ucore.info
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[push]
+	default = matching
+[alias]
+	co = checkout
+	ci = commit
+	st = status --untracked-files=no
+	up = pull
+[github]
+	user = dpc
+	token = ea126317eea4815e6d1a580fbb9264f7

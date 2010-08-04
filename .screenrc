@@ -1,0 +1,50 @@
+# Ctrl-Space is escape
+escape ^@@
+
+# basic settings... self explanatory
+deflogin on
+autodetach on
+startup_message off
+idle 600 lockscreen
+
+# the dash makes it a login shell
+defshell bash
+activity ""
+bell_msg ""
+vbell off
+vbell_msg ""
+defscrollback 2048
+nonblock on
+defutf8 on
+defbce on
+defflow off
+msgwait 1
+altscreen on
+
+# only Shift+k to kill - prevent accidents
+bind k
+bind ^k
+bind K kill
+
+term screen-256color-bce
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# enable SHIFT-PGUP / SHIFT-PGDOWN scroll
+#termcapinfo xterm* ti@:te@
+
+# change window with ALT-Q ALT-W
+bindkey "^[q" prev
+bindkey "^[w" next
+
+# no 0 screen
+bind c screen 1
+bind 0 select 10
+# select screen 1 by default
+screen 1
+
+hardstatus on
+hardstatus message '%H'
+
+caption always
+#caption string '%{= wk}[ %{r}%H %{-}][ %{= wk}%-w%{+b d}%n %t%{-}%+w%= %{k}][%{b} %d/%m%{k} %c %{k}]'
+caption string '%{= wk}[ %{r}%H %{-}][ %-w%{+b d}%n %t%{-}%+w%= ][%{b} %d/%m%{-}%{k} %c %{-}]%{-}'
