@@ -9,6 +9,7 @@ cd
 
 [ -f ".bashrc" ] && mv ".bashrc" ".bashrc.local"
 [ -f ".bash_profile" ] && mv ".bash_profile" ".bash_profile.local"
+[ -f ".CLONE.sh" ] && mv ".CLONE.sh" "CLONE.sh"
 
 git init
 git remote add origin "$1"
