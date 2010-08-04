@@ -1,6 +1,14 @@
 #!/bin/sh
 
-[ -z "$1" ] && echo "Arg required: url from which should I clone" && exit 1
+
+if [ -z "$1" ]; then
+	echo "No argument given - using the default" && exit 1
+	URL="git@github.com:dpc/homeskel.git"
+else
+	URL="$1"
+fi
+
+echo "Cloning from: $URL"
 
 [ -z "`which git`" ] && echo "Install git first" && exit 1
 [ -z "`which screen`" ] && echo "Install screen first" && exit 1
@@ -12,7 +20,7 @@ cd
 [ -f ".CLONE.sh" ] && mv ".CLONE.sh" "CLONE.sh"
 
 git init
-git remote add origin "$1"
+git remote add origin "$URL"
 git fetch
 git branch master origin/master
 git checkout master
