@@ -1,3 +1,8 @@
 alias ls="ls --color=auto"
 alias vi="vim"
 alias sudo='sudo -E'
+
+ts() {
+	date --date="$*" '+%y%m%d%H%M';
+}
+
