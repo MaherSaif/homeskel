@@ -22,6 +22,13 @@ if [ "$TERM" == "xterm" ]; then
 	export TERM=xterm-256color
 fi
 
+# envs.
+if [ -z "$BASHRC_ENV_LOADED" ]; then
+	export BASHRC_ENV_LOADED=true
+	[ -f "$HOME/.bashrc.env" ] && source "$HOME/.bashrc.env"
+	[ -f "$HOME/.bashrc.env.local" ] && source "$HOME/.bashrc.env.local"
+fi
+
 # handle screen/tmux & ssh
 if [ ! -z "`which tmux`" ]; then
 	[ -f "$HOME/.bashrc.tmux" ] && source "$HOME/.bashrc.tmux"
@@ -29,9 +36,6 @@ else
 	[ -f "$HOME/.bashrc.screen" ] && source "$HOME/.bashrc.screen"
 fi
 
-# envs.
-[ -f "$HOME/.bashrc.env" ] && source "$HOME/.bashrc.env"
-[ -f "$HOME/.bashrc.env.local" ] && source "$HOME/.bashrc.env.local"
 
 # aliases for interactive shell
 [ -f "$HOME/.bashrc.alias" ] && source "$HOME/.bashrc.alias"
