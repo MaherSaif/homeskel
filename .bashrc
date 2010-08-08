@@ -31,6 +31,13 @@ fi
 
 [ -f "$HOME/MOTD" ]  && cat "$HOME/MOTD"
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
 export PS1="\[$(tput setaf 2)\]\u\[$(tput sgr0)\]@\[$(tput setaf 1)\]\h\[$(tput sgr0)\]:\[$(tput setaf 4)\]\W\[$(tput sgr0)\]\$ "
 
 set -o vi
