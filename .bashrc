@@ -16,6 +16,12 @@ if [[ $- != *i* ]] ; then
 	return
 fi
 
+# gnome-terminal workaround
+if [ "$TERM" == "xterm" ]; then
+	# No it isn't, it's gnome-terminal
+	export TERM=xterm-256color
+fi
+
 # handle screen & ssh
 [ -f "$HOME/.bashrc.screen" ] && source "$HOME/.bashrc.screen"
 
