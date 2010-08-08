@@ -23,7 +23,7 @@ if [ "$TERM" == "xterm" ]; then
 fi
 
 # handle screen/tmux & ssh
-if [ -z `which tmux` ]; then
+if [ ! -z "`which tmux`" ]; then
 	[ -f "$HOME/.bashrc.tmux" ] && source "$HOME/.bashrc.tmux"
 else
 	[ -f "$HOME/.bashrc.screen" ] && source "$HOME/.bashrc.screen"
