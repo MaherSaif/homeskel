@@ -22,8 +22,12 @@ if [ "$TERM" == "xterm" ]; then
 	export TERM=xterm-256color
 fi
 
-# handle screen & ssh
-[ -f "$HOME/.bashrc.screen" ] && source "$HOME/.bashrc.screen"
+# handle screen/tmux & ssh
+if [ -z `which tmux` ]; then
+	[ -f "$HOME/.bashrc.tmux" ] && source "$HOME/.bashrc.tmux"
+else
+	[ -f "$HOME/.bashrc.screen" ] && source "$HOME/.bashrc.screen"
+fi
 
 # envs.
 [ -f "$HOME/.bashrc.env" ] && source "$HOME/.bashrc.env"
