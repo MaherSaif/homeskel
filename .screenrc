@@ -30,7 +30,7 @@ term screen-256color-bce
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 
 # enable SHIFT-PGUP / SHIFT-PGDOWN scroll
-#termcapinfo xterm* ti@:te@
+termcapinfo xterm* ti@:te@
 
 # change window with ALT-Q ALT-W
 bindkey "^[q" prev
