@@ -15,10 +15,6 @@ echo "Cloning from: $URL"
 
 cd
 
-[ -f ".bashrc" ] && mv ".bashrc" ".bashrc.local"
-[ -f ".bash_profile" ] && mv ".bash_profile" ".bash_profile.local"
-[ -f ".CLONE.sh" ] && mv ".CLONE.sh" "CLONE.sh"
-
 if [ ! -d ".git" ]; then
 	git init
 	git remote add origin "$URL"
